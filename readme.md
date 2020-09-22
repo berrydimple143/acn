@@ -3,3 +3,6 @@ This project is a customized web service project built using the Laravel Framewo
 
 # What's inside the code
 Comments are presented inside each code explaining its functions (what it can do)
+
+# Documentation of how this system works
+## 1. Go to https://ausreg.net/. Then select a State in the dropdown list and afterwards choose a Region and press the red button "Go There".
