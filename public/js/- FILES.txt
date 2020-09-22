@@ -1,0 +1,16 @@
+JAVASCRIPT FILES IN THIS DIRECTORY
+
+## ANIMATED MENU - REQUIRES BOOTSTRAP
+# Source:http://kybarg.github.io/bootstrap-dropdown-hover
+
+bootstrap-dropdownhover.js
+bootstrap-dropdownhover.min.js
+
+
+## BOOTSTRAP 
+# Version 3.3.7
+
+bootstrap.js
+bootstrap.min.js
+npn.js
+

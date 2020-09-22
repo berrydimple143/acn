@@ -1,0 +1,22 @@
+CSS FILES IN THIS DIRECTORY
+
+ANIMATED MENU - REQUIRES BOOTSTRAP
+Source:http://kybarg.github.io/bootstrap-dropdown-hover
+
+animate.css
+animate.min.css
+bootstrap-dropdownhover.css
+bootstrap-dropdownhover.min.css
+
+
+## BOOTSTRAP 
+# Version 3.3.7
+
+bootstrap-theme.css
+bootstrap-theme.css.map
+bootstrap-theme.min.css
+bootstrap-theme.min.css.map
+bootstrap.css
+bootstrap.css.map
+bootstrap.min.css
+bootstrap.min.css.map

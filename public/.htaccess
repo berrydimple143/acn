@@ -1,0 +1,56 @@
+
+
+# PHP error handling for development servers
+php_flag display_startup_errors on
+php_flag display_errors on
+php_flag html_errors on
+php_flag log_errors on
+php_flag ignore_repeated_errors off
+php_flag ignore_repeated_source off
+php_flag report_memleaks on
+php_flag track_errors on
+php_value docref_root 0
+php_value docref_ext 0
+php_value error_log /var/www/html/australianregionalnetwork.com.au/PHP_errors.log
+
+# This 2047 value is for my php 5.1.6, try -1 after upgrade 
+php_value error_reporting 2047
+
+php_value log_errors_max_len 0
+
+AuthType Basic
+AuthName "Restricted Area"
+AuthBasicProvider file
+AuthUserFile /var/www/.htpasswds/admin
+<RequireAny>
+Require valid-user
+# Require ip 101.167.174.131
+</RequireAny>
+
+# Directory Browsing
+Options Indexes FollowSymLinks
+
+
+
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>

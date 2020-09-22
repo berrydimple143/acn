@@ -1,0 +1,229 @@
+<style type="text/css"> table.ad {
+ border-width: 1px;
+ border-spacing: 0px;
+ border-style: outset;
+ border-color: black;
+ border-collapse: collapse;
+ background-color: white;
+}
+table.ad td {
+	border-width: 1px;
+	padding: 0px;
+	border-style: inset;
+	border-color: black;
+	background-color: white;
+}
+table.teaser td {
+	border-width: 0px;
+	padding: 4px;
+	background-color: #FFFFFF;
+	width: 100%;
+}
+table.mapheader td {
+	border-width: 0px;
+	padding: 4px;
+	background-color: #FFFFFF;
+	width: 100%;
+}
+div.owners-container {
+	width: 100%;
+	text-align: center;
+}
+div.owners {
+	background-color: #000000;
+	color: #ffffff;
+	border: 1px solid #009966;
+	padding: 0px 4px;
+	margin: 0 auto;
+	display: inline-block;
+}
+.paginate {
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 3px;
+	margin: 3px;
+}
+.paginate a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #000;
+	text-decoration: none;
+	color: #fff;
+	background-color: #003399;
+	font-weight: bold
+}
+.paginate a:hover, .paginate a:active {
+	border: 1px solid #000000;
+	font-weight: bold;
+	color: #FFF;
+	background-color: #009966;
+}
+.paginate span.current {
+	margin: 2px;
+	padding: 2px 5px 2px 5px;
+	border: 1px solid #000000;
+	font-weight: bold;
+	background-color: #CC0000;
+	color: #FFF;
+}
+.paginate span.disabled {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #000;
+	color: #666;
+	background-color: #FFCC33;
+}
+div.owners {
+	background-color: #000000;
+	color: #ffffff;
+	border: 1px solid #009966;
+	padding: 0px 4px;
+	max-width: 480px;
+	margin: 0 auto;
+}
+.smartad-banner {
+	max-width: 100%;
+	text-align: center;
+	margin: 0 auto;
+}
+.video-container {
+	position:relative;
+	padding-bottom:56.25%;
+	padding-top:2px;
+	height:0;
+	overflow:hidden;
+}
+.video-container iframe, .video-container object, .video-container embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+.smartad-main {
+	display: -webkit-flex;
+	display: flex;
+	flex-basis: 0;
+	flex-direction: row;
+	max-width: 640px;
+	margin: 0 auto;
+	align-items: right;
+	justify-content: space-between;
+}
+.smartad-contact {
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: row;
+	align-items: top;
+	justify-content: space-around;
+	padding: 5px;
+	width: calc(50% - 60px);
+}
+.smartad-contact-text {
+}
+.smartad-conditional-arrow {
+	display: flex;
+	align-items: right;
+	justify-content: right;
+	padding-top: 5px;
+}
+.smartad-weblinks {
+	display: flex !important;
+	align-items: top;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px;
+}
+.smartad-social {
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	align-items: top;
+	justify-content: space-between;
+	padding: 5px;
+	width: calc(50% - 60px);
+}
+.smartad-addthis-email {
+	padding-bottom: 5px;
+	text-align: right;
+}
+.smartad-addthis {
+	padding-top: 5px;
+}
+.smartad-facebook-likebox {
+	padding: 5px;
+	width: 100% !important
+}
+#smartad-likebox-wrapper * {
+	width: 300px !important;
+	align: center;
+}
+#smartad-website-button {
+	display: block;
+	width: 120px;
+	height: 120px;
+	background: url("/commonimages/buttons/smartad-website-large.png") no-repeat 0 0;
+}
+#smartad-website-button:hover {
+	background-position: 0 -120px;
+}
+.smartad-body {
+	max-width: 640px;
+	margin: 0 auto;
+	padding: 5px;
+}
+
+ @media (max-width: 580px) {
+/* This media query can probably be removed
+
+ .smartad-conditional-arrow {
+	display: none;
+}*/
+}
+ @media (min-width: 481px) {
+.smartad-email-us-1 {
+	display: none;
+}
+.smartad-weblink-left-arrow {
+	display: none;
+}
+.smartad-weblink-right-arrow {
+	display: none;
+}
+}
+ @media (max-width: 480px) {
+.smartad-main {
+	flex-direction: column;
+}
+.smartad-contact {
+	justify-content: space-around;
+}
+.smartad-weblinks {
+	width: 100%;
+}
+.smartad-social {
+	width: 100%;
+}
+.smartad-contact {
+	width: 100%;
+}
+.smartad-email-us-2 {
+	display: none;
+}
+.smartad-conditional-arrow {
+	display: none;
+}
+
+}
+ @media (max-width: 400px) {
+#smartad-website-button {
+	display: block;
+	width: 100px;
+	height: 100px;
+	background: url("/commonimages/buttons/smartad-website-small.png") no-repeat 0 0;
+}
+#smartad-website-button:hover {
+	background-position: 0 -100px;
+}
+}
+ </style>

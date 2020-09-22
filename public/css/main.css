@@ -1,0 +1,15 @@
+.navbar-inverse { 
+	background-color: #009966;
+  	border-color: #080808;
+}
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-text, .navbar-inverse .navbar-nav > li > a {
+  	color: #fff;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus { 
+	color: #ffd520;
+}
+.text-white a { text-decoration: none; color: #fff; }
+.text-center { text-align: center; }
+.article, .main  { max-width: 960px; }
+body { background-color: transparent; }

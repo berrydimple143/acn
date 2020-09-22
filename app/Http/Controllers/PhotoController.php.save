@@ -1,0 +1,140 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\AdminController;
+use App\Photo;
+use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
+
+class PhotoController extends Controller
+{    
+    public function index()
+    {
+        if(AdminController::isLogin()) {
+		$photos = Photo::where('customer_id', session('user')->customer_id)->paginate(5);
+                return view('admin.photos', ['title' => 'Images Page', 'photos' => $photos, 'runningbg' => session('runningbg')]);
+        } else {
+                return redirect()->route('login');
+        }
+    }
+
+    public function search(Request $request) {	
+	if(AdminController::isLogin()) {
+		$sr = $request->input('image');
+		$photos = DB::table('customer_images')
+            		->where('customer_id', '=', session('user')->customer_id)
+            		->where(function ($query) use ($sr) {
+				$go = '%'.$sr.'%';
+                		$query->where('category', 'like', $go)
+					->orWhere('id', 'like', $go)
+					->orWhere('title', 'like', $go)
+					->orWhere('description', 'like', $go)
+                      			->orWhere('filename', 'like', $go);
+            		})->paginate(5);
+                return view('admin.photos', ['title' => 'Images Search Page', 'photos' => $photos, 'runningbg' => session('runningbg')]);
+        } else {
+                return redirect()->route('login');
+        }		
+    }
+
+    public function create() {
+        if(AdminController::isLogin()) {
+		return view('admin.photo_add', ['title' => 'Image Creator Page', 'runningbg' => session('runningbg')]);
+	} else {
+                return redirect()->route('login');
+        }
+    }
+
+    public function store(Request $request)
+    {
+        if(AdminController::isLogin()) {
+		if ($request->hasFile('filename')) {
+			$file = $request->file('filename');
+			if ($request->file('filename')->isValid()) {
+				$fn = (string)Carbon::now() . '.png';
+				$path = 'public/photos/normal/'.$fn;
+				$dat = getimagesize($file);
+				$width = $dat[0];
+				$height = $dat[1];
+				$ext = $request->file('filename')->extension();
+				if($ext == "gif" && ($width > 640 || $height > 480)) {	
+					$rt = route('photo.add');
+					return view('admin.invalid_format', ['title' => 'Invalid Photo', 'route' => $rt, 'runningbg' => session('runningbg')]);	
+				} else {
+					
+				}
+				/*
+				$image = Image::make($file);
+				if($width > 700) {
+					$image->widen(700);
+				} else {
+					$image->widen($width);
+				}			
+				Storage::put($path, (string) $image->encode());
+				*/
+			}
+		}		
+                //return view('admin.photo_save', ['title' => 'Image Creator Page', 'runningbg' => session('runningbg')]);
+        } else {
+                return redirect()->route('login');
+        }
+    }
+
+    public function save(Request $request)
+    {
+        if(AdminController::isLogin()) {
+		
+        } else {
+                return redirect()->route('login');
+        }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}

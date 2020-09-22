@@ -1,0 +1,323 @@
+<style type="text/css">
+
+table.event {
+	border-width: 1px;
+	border-spacing: 0px;
+	border-style: outset;
+	border-color: black;
+	border-collapse: collapse;
+	background-color: white;
+}
+table.event td {
+	border-width: 1px;
+	padding: 0px;
+	border-style: inset;
+	border-color: black;
+	background-color: white;
+}
+table.teaser td {
+	border-width: 0px;
+	padding: 4px;
+	background-color: #FFFFFF;
+	width: 100%;
+}
+table.mapheader td {
+	border-width: 0px;
+	padding: 4px;
+	background-color: #FFFFFF;
+	width: 100%;
+}
+.paginate {
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 3px;
+	margin: 3px;
+}
+.paginate a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #000;
+	text-decoration: none;
+	color: #fff;
+	background-color: #003399;
+	font-weight: bold
+}
+.paginate a:hover, .paginate a:active {
+	border: 1px solid #000000;
+	font-weight: bold;
+	color: #FFF;
+	background-color: #009966;
+}
+.paginate span.current {
+	margin: 2px;
+	padding: 2px 5px 2px 5px;
+	border: 1px solid #000000;
+	font-weight: bold;
+	background-color: #CC0000;
+	color: #FFF;
+}
+.paginate span.disabled {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #000;
+	color: #666;
+	background-color: #FFCC33;
+}
+div.owners-container {
+	width: 100%;
+	text-align: center
+}
+div.owners {
+	background-color: #000000;
+	color: #ffffff;
+	border: 1px solid #009966;
+	padding: 0px 4px;
+	margin: 0 auto;
+	display: inline-block;
+}
+.smartevent-banner {
+	max-width: 100%;
+	text-align: center;
+	margin: 0 auto;
+}
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 2px;
+	height: 0;
+	overflow: hidden;
+}
+.video-container iframe, .video-container object, .video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.smartevent-main {
+	display: -webkit-flex;
+	display: flex;
+	flex-basis: 0;
+	flex-direction: row;
+	max-width: 640px;
+	margin: 0 auto;
+	align-items: right;
+	justify-content: space-between;
+	background:#FFFFFF;
+}
+.smartevent-contact {
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: row;
+	align-items: top;
+	justify-content: space-between;
+	padding: 5px;
+	width: calc(50% - 60px);
+}
+.smartevent-contact-text {
+}
+.smartevent-conditional-arrow {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding-top: 32px;
+}
+.smartevent-weblinks {
+	display: flex !important;
+	align-items: top;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px;
+}
+.smartevent-social {
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	align-items: top;
+	justify-content: space-between;
+	padding: 5px;
+	width: calc(50% - 60px);
+}
+.smartevent-addthis-email {
+	padding-bottom: 5px;
+	text-align: right;
+}
+.smartevent-addthis {
+	padding-top: 5px;
+}
+.smartevent-facebook-likebox {
+	padding: 5px;
+	width: 100% !important
+}
+#smartevent-likebox-wrapper * {
+	width: 300px !important;
+	align: center;
+}
+#smartevent-website-button {
+	display: block;
+	width: 120px;
+	height: 120px;
+	background: url("/commonimages/buttons/smartad-website-large.png") no-repeat 0 0;
+}
+#smartevent-website-button:hover {
+	background-position: 0 -120px;
+}
+.smartevent-body {
+	max-width: 640px;
+	margin: 0 auto;
+	padding: 5px;
+	background:#FFFFFF;
+}
+.sponsor {
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 2px;
+	margin: 2px 0px 2px 0px;
+	display: inline-block;
+}
+.sponsor a {
+	padding: 1px 5px 1px 5px;
+	color: #000;
+	background-color: fff;
+	text-decoration: none;
+	border: 1px solid #000000
+}
+.sponsor a:link:hover {
+	padding: 1px 5px 1px 5px;
+	color: #FFF;
+	background-color: 003399;
+	text-decoration: none;
+	border: 1px solid #000000
+}
+.sponsor a:visited:hover {
+	padding: 1px 5px 1px 5px;
+	color: #FFF;
+	background-color: 009966;
+	text-decoration: none;
+	border: 1px solid #000000
+}
+.sponsor a:link:active {
+	padding: 1px 5px 1px 5px;
+	color: #000;
+	background-color: ffcc33;
+	text-decoration: none;
+	border: 1px solid #000000
+}
+.sponsor a:visited:active {
+	padding: 1px 5px 1px 5px;
+	color: #000;
+	background-color: ffcc33;
+	text-decoration: none;
+	border: 1px solid #00000
+}
+
+/* CSS For Calendar */
+.calendar-container {
+	padding-top:0px;
+}
+
+.calendar-line {
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: row;
+	max-width: 640px;
+	margin-bottom: 4px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	background-color: transparent;
+	border-style: solid; 
+    border-width: 1px;
+}
+
+.calendar-container A:link {
+	color: #000000; 
+	text-decoration: none;
+}
+.calendar-container A:visited {
+	color: #000000;
+	text-decoration: none;
+}
+.calendar-container A:active {
+	color: #003399;
+	text-decoration: none;
+}
+.calendar-container A:hover {
+	color: #009966;
+	text-decoration: none;
+}
+	
+.calendar-event-date {
+	padding: 10px;
+	background-color: #FFFFFF;
+	width:40%;
+}
+.calendar-event-summary {
+	padding: 10px;
+	background-color: #FFFFFF;
+		width:60%;
+}
+
+
+ @media (max-width: 580px) {
+.smartevent-conditional-arrow {
+	display: none;
+}
+}
+ @media (min-width: 481px) {
+.smartevent-email-us-1 {
+	display: none;
+}
+.smartevent-weblink-left-arrow {
+	display: none;
+}
+.smartevent-weblink-right-arrow {
+	display: none;
+}
+}
+ @media (max-width: 480px) {
+	 
+.calendar-line {
+	flex-direction: column;
+}
+.calendar-event-date {
+	padding: 10px;
+	width:100%;
+}
+.calendar-event-summary {
+	padding: 10px;
+		width:100%;
+}
+	 
+	 
+	 
+.smartevent-main {
+	flex-direction: column;
+}
+.smartevent-contact {
+	justify-content: space-around;
+}
+.smartevent-weblinks {
+	width: 100%;
+}
+.smartevent-social {
+	width: 100%;
+}
+.smartevent-contact {
+	width: 100%;
+}
+.smartevent-email-us-2 {
+	display: none;
+}
+}
+ @media (max-width: 400px) {
+#smartevent-website-button {
+	display: block;
+	width: 100px;
+	height: 100px;
+	background: url("/commonimages/buttons/smartad-website-small.png") no-repeat 0 0;
+}
+#smartevent-website-button:hover {
+	background-position: 0 -100px;
+}
+}
+ </style>

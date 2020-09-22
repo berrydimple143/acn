@@ -1,0 +1,539 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+}
+/* SITE STANDARDS */
+
+h1 {
+	margin: 0;
+	padding: 2;
+}
+h2 {
+	margin: 0;
+	padding: 4;
+}
+h3 {
+	margin: 0;
+	padding: 4;
+}
+h4 {
+	margin: 0;
+	padding: 4;
+}
+h5 {
+	margin: 0;
+	padding: 4;
+}
+p {
+	margin: 0;
+	padding: 8;
+}
+form {
+	margin-bottom: 0;
+}
+A:link {
+	color: blue;
+	/* text-decoration: underline; */
+}
+A:visited {
+	color: blue;
+	/* text-decoration: underline; */
+}
+A:active {
+	color: green;
+	/* text-decoration: underline; */
+}
+A:hover {
+	color: red;
+	text-decoration: none;
+}
+.pagebutton {
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 3px;
+	margin: 3px;
+	font-weight: bold;
+}
+.pagebutton a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #000;
+	text-decoration: none;
+	color: #fff;
+	background-color: #003399;
+}
+.pagebutton a:hover, .pagebutton a:active {
+	border: 1px solid #000000;
+	color: #FFF;
+	background-color: #009966;
+}
+div.content {
+	background-color: #FFFFFF; /* White */
+	border: 1px solid #000000; /* Black */
+	padding: 4px;
+	max-width: 640px;
+}
+div.articles {
+	background-color: #FFFFFF; /* White */
+	padding: 0px;
+	max-width: 640px;
+}
+/* This is for readable minimenus such as used in food and wine */   
+.minimenu {
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 3px;
+	margin: 3px;
+}
+.minimenu a {
+	padding: 5px 5px 4px 5px;
+	margin: 2px;
+	border: 1px solid #000000;
+	text-decoration: none;
+	color: #FFFFFF;
+	background-color: #003399;
+	display:inline-block;
+}
+.minimenu a:hover {
+	color: #FFFFFF;
+	background-color: #619EFF;
+}
+.minimenu a:active {
+	color: #FFFFFF;
+	background-color: #009966;
+}
+.minimenu h1 {
+	margin: 0;
+	padding: 2;
+	text-shadow: 1px 1px 1px #000000;
+	color: #FFFFFF;
+}
+.minimenu h2 {
+	margin: 0;
+	padding: 4;
+	color: #FFFFFF;
+	text-shadow: 1px 1px 1px #000000;
+}
+.minimenu h3 {
+	margin: 0;
+	padding: 4;
+	color: #FFFFFF;
+	text-shadow: 1px 1px 1px #000000;
+}
+.minimenu h4 {
+	margin: 0;
+	padding: 4;
+	color: #FFFFFF;
+	text-shadow: 1px 1px 1px #000000;
+}
+/* This is for white readable text against photo backgrounds */  
+h1.wild-white {
+	margin: 0;
+	padding: 2;
+	text-shadow: 1px 1px 1px #000000;
+	color: #FFFFFF;
+}
+h2.wild-white {
+	margin: 0;
+	padding: 4;
+	color: #FFFFFF;
+	text-shadow: 1px 1px 1px #000000;
+}
+h3.wild-white {
+	margin: 0;
+	padding: 4;
+	color: #FFFFFF;
+	text-shadow: 1px 1px 1px #000000;
+}
+h4.wild-white {
+	margin: 0;
+	padding: 4;
+	color: #FFFFFF;
+	text-shadow: 1px 1px 1px #000000;
+}
+p.wild-white {
+	margin: 0;
+	padding: 4;
+	color: #FFFFFF;
+	text-shadow: 1px 1px 1px #000000;
+}
+/* This is for green readable text against photo backgrounds */  
+h1.wild-green {
+	margin: 0;
+	padding: 2;
+	text-shadow: 1px 1px 1px #000000;
+	color: #009966;
+}
+h2.wild-green {
+	margin: 0;
+	padding: 4;
+	color: #009966;
+	text-shadow: 1px 1px 1px #000000;
+}
+h3.wild-green {
+	margin: 0;
+	padding: 4;
+	color: #009966;
+	text-shadow: 1px 1px 1px #000000;
+}
+h4.wild-green {
+	margin: 0;
+	padding: 4;
+	color: #009966;
+	text-shadow: 1px 1px 1px #000000;
+}
+p.wild-green {
+	margin: 0;
+	padding: 4;
+	color: #009966;
+	text-shadow: 1px 1px 1px #000000;
+}
+/* This is for red readable text against photo backgrounds */  
+h1.wild-red {
+	margin: 0;
+	padding: 2;
+	text-shadow: 1px 1px 1px #000000;
+	color: #CC0000;
+}
+h2.wild-red {
+	margin: 0;
+	padding: 4;
+	color: #CC0000;
+	text-shadow: 1px 1px 1px #000000;
+}
+h3.wild-red {
+	margin: 0;
+	padding: 4;
+	color: #CC0000;
+	text-shadow: 1px 1px 1px #000000;
+}
+h4.wild-red {
+	margin: 0;
+	padding: 4;
+	color: #CC0000;
+	text-shadow: 1px 1px 1px #000000;
+}
+p.wild-red {
+	margin: 0;
+	padding: 4;
+	color: #CC0000;
+	text-shadow: 1px 1px 1px #000000;
+}
+/* ACN LOGO and BACKGROUND CREDIT at screens wider than 1280px */
+div.logo {
+	float: left;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+}
+div.credit {
+	float: left;
+	position: fixed;
+	max-width: 12%;
+	bottom: 26px;
+	left: 4px;
+	background: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 3px;
+	margin: 3px;
+	border: 1px solid #000000;
+	text-align: center;
+	opacity: .7;
+}
+.credit a {
+	text-decoration: none;
+	color: #000000;
+	background-color: #ffffff;
+}
+.credit a:hover {
+	color: #009966;
+	background-color: #FFFFFF;
+}
+.credit a:active {
+	color: #00FF00;
+	background-color: #FFFFFF;
+}
+ @media (max-width: 1280px) {
+div.logo {
+	display: none;
+}
+div.credit {
+	display: none;
+}
+}
+/* END ACN LOGO and BACKGROUND CREDIT at screens wider than 1280px */
+
+
+
+/* HEADER PARENT */
+.header {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 0px;
+}
+/* HEADER CHILDREN */
+
+.primary-header-container {
+	display: flex;
+	display: -ms-flex;
+	display: -moz-flex;
+	display: -webkit-flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 4px;
+	padding-bottom: 4px;/*	background: #DDD; */
+}
+.left-header-container {
+/*	background: #993366; */
+}
+.center-header-container {
+	flex-direction: row;
+	flex-grow: 2;
+	padding-left: 30px;/*background: #993366; */
+}
+.right-header-container {
+	flex-direction: row;
+	align-items: right;
+	justify-content: right;
+	-webkit-align-items: right;
+	-webkit-justify-content: right;/* background: #993366; */
+}
+.flag-group-container {
+	display: flex;
+	display: -ms-flex;
+	display: -moz-flex;
+	display: -webkit-flex;
+	align-items: center;
+ justify-content: center flex-direction: row;/*	background: #ffffff; */
+}
+.login-group-container {
+	display: flex;
+	display: -ms-flex;
+	display: -moz-flex;
+	display: -webkit-flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;/*	background: #ffffff; */
+}
+.header-logo {
+/*	background: #009966; */
+}
+.header-title {
+	text-align: left;
+}
+.header-state {
+	text-align: center;
+}
+.header-domain {
+	text-align: right;
+}
+.header-info {
+	text-align: center;
+}
+.header-leftofflag {
+	display: flex;
+	display: -ms-flex;
+	display: -moz-flex;
+	display: -webkit-flex;
+	align-items: center;
+	justify-content: center;/*	background: #779933; */
+}
+.header-flag {
+	display: flex;
+	display: -ms-flex;
+	display: -moz-flex;
+	display: -webkit-flex;
+	align-items: right;
+	justify-content: right;
+	-ms-align-items: right;
+	-ms-justify-content: right;
+	-moz-align-items: right;
+	-moz-justify-content: right;
+	-webkit-align-items: right;
+	-webkit-justify-content: right;/* background: #779933; */
+}
+.header-arrow {
+	display: flex;
+	display: -ms-flex;
+	display: -moz-flex;
+	display: -webkit-flex;
+	align-items: center;
+	justify-content: center;/*	background: #779933; */
+}
+.header-login {
+/*	background: #339966; */
+}
+/* END HEADER */
+
+
+.topnav {
+	background: #bbbbbb;
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 0px;
+}
+.main {
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: row;
+	min-height: 200px;
+	max-width: 960px;
+	margin: 0 auto
+}
+.article {
+	min-width: 640px;
+	padding: 0px;
+}
+.lefttiles {
+	order: -1;
+	min-width: 160px;
+	padding: 5px;
+}
+.rightaside {
+	min-width: 160px;
+	padding: 5px;
+}
+.footer {
+	background: #003399;
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 5px;
+}
+/* ACN TILES */
+.tile-container {
+	display: flex;
+	display: -ms-flex;
+	display: -moz-flex;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+}
+.tile {
+	flex: 1 0 120px;
+	align-self: stretch;
+	max-width: 100%;
+	min-height: 80px;
+	margin: 2px;
+	padding: 0px;
+	border: 1px solid #000000;
+	color: #FFFFFF;
+	background: #FFFFFF;
+	align-items: center;
+	justify-content: space-around;
+ // Min width &:nth-child(2n+3) {
+ flex-basis:300px;
+}
+ &:nth-child(4n+5) {
+ flex-basis:450px;
+}
+ // End Min width // Color &:nth-child(odd) {
+ border-top-color:teal;
+}
+ &:nth-child(even) {
+ border-top-color:wheat;
+}
+ // End Color
+}
+/* END ACN TILES */
+
+ @media (max-width: 1280px) {
+div.logo {
+	display: none;
+}
+div.credit {
+	display: none;
+}
+}
+ @media (max-width: 960px) {
+.header {
+	max-width: 800px;
+}
+.topnav {
+	max-width: 800px;
+}
+.center-header-container {
+	padding-left: 10px;
+}
+.rightaside {
+	display: none;
+}
+.main {
+	max-width: 800px;
+}
+.footer {
+	max-width: 800px;
+}
+}
+
+/*
+ @media (min-width: 820px) {
+ .article {
+
+}
+ }
+*/
+
+ @media (max-width: 800px) {
+.header {
+	max-width: 640px;
+}
+.center-header-container {
+	padding-left: 0px;
+}
+.header-leftofflag {
+	display: none;
+}
+.header-arrow {
+	display: none;
+}
+.header-domain {
+	text-align: center;
+}
+.topnav {
+	max-width: 640px;
+}
+.main {
+	max-width: 640px;
+	flex-direction: column;
+}
+.article {
+	min-width: 100%;
+}
+.footer {
+	max-width: 640px;
+}
+}
+ @media (max-width: 640px) {
+.header {
+	max-width: 100%;
+}
+.primary-header-container {
+	justify-content: space-around;
+}
+.center-header-container {
+	justify-content: space-around;
+}
+.right-header-container {
+	display: none;
+}
+.topnav {
+	max-width: 100%;
+}
+.main {
+	max-width: 100%;
+}
+.footer {
+	max-width: 100%;
+}
+}
+ @media (max-width: 480px) {
+.left-header-container {
+	display: none;
+}
+.center-header-container {
+	min-width: 100%;
+}
+.header-title {
+	text-align: center;
+}
+}

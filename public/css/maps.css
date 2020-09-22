@@ -1,0 +1,45 @@
+<style type="text/css">  
+
+#listing {
+	margin-left: 0px;
+	width: 100%;
+	height: auto;
+	overflow: auto;
+	cursor: pointer;
+}
+#controls {
+	padding: 5px;
+	width: 100%;
+}
+.placeIcon {
+	width: 16px;
+	height: 16px;
+	margin: 2px;
+}
+#results {
+	border-collapse: collapse;
+	width: 100%;
+	border: 1px solid #ccc;
+}
+#locationField {
+	margin-left: 1px;
+}
+#autocomplete {
+	width: 100%;
+	border: 1px solid #ccc;
+}
+.mapsbutton {
+	padding: 4px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.mapsbutton:focus {
+	outline-color: #33F;
+	outline: 5;
+	color: #F00;
+}
+#map_canvas {
+ width: 100%;
+ height: 640px;
+}
+</style>
