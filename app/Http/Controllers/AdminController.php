@@ -1,7 +1,10 @@
 <?php
 
+/* Note: All methods in this controller cannot be accessed or used without logging in first */
+
 namespace App\Http\Controllers;
 
+/* Importing installed packages, models, and classes including the default ones */
 use Yajra\Datatables\Datatables;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -171,7 +174,7 @@ class AdminController extends Controller {
 		}
     }
     
-    /* This method is responsible for  */
+    /* This method is responsible for updating the leftside menu especially when moving portals/locations */
 	public static function updateMenu() { 
 		try {
 			$number_of_images = 1;  
@@ -207,6 +210,8 @@ class AdminController extends Controller {
 			throw new GeneralException("Oops! There was an error somewhere in the process.");
 		}
     }
+    
+    /* This method is responsible for all the transactions in the user admin's dashboard */
     public function index(Request $request) {
 			$newloc = $request->query('loc');
 			$newurl = $request->query('url');
