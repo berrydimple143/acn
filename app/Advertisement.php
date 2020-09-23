@@ -1,5 +1,6 @@
 <?php
 
+/* Note: Some of the models refers to different databases in mysql because this project uses multiple mysql database */
 /* This is the model for the advertisement in the database */
 
 namespace App;
