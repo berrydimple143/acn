@@ -45,7 +45,7 @@ class AdsController extends Controller {
         }
     }
     
-    /* This method is responsible for  */
+    /* This method is responsible for dynamically populating data for the advertisements table using the third-party jquery plugin Datatables. It has other processes also. */
     public function data() {
         $ads = Advertisement::where('customer_id', session('user')->customer_id)->orderBy('ad_id', 'desc');
         return Datatables::of($ads)			
@@ -76,6 +76,8 @@ class AdsController extends Controller {
                 return '<center>'.$stat.'</center>';
 			})->rawColumns(['action', 'ad_status'])->make(true);
     }	
+    
+    /* This method is responsible for showing a single advertisement page with an SEO friendly url using a slug */
 	public function slug($slug) {		
 		try {
 			$arr = explode("-", $slug);		
