@@ -1,5 +1,7 @@
 <?php
 
+/* Note: Some of the models refers to different databases in mysql because this project uses multiple mysql database */
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
