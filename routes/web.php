@@ -34,21 +34,35 @@ Route::post('/reset/now', 'ResetPasswordController@reset_now')->name('reset.now'
 Route::get('/redirect', 'SocialAuthFacebookController@redirect')->name('facebook.redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback')->name('facebook.callback');
 
-//Admin
+/* User's dashboard route (requires logged in) */
 Route::get('/', 'AdminController@index')->name('home');
+
+/* User's account settings route (requires logged in) */
 Route::get('/settings', 'AdminController@settings')->name('settings');
 Route::put('/settings/update/{id}', 'AdminController@update_settings')->name('settings.update');
+
+/* User's profile settings route (requires logged in) */
 Route::get('/profile', 'AdminController@profile')->name('profile');
 Route::put('/profile/update/{id}', 'AdminController@update_profile')->name('profile.update');
+
+/* Logout button route if logged in */
 Route::get('/logout', 'AdminController@logout')->name('logout');
+
+/* User's mobile validation route (requires logged in) */
 Route::get('/admin/mobile', 'AdminController@mobile')->name('admin.mobile');
 Route::post('/admin/mobile', 'AdminController@post_mobile')->name('admin.mobile.post');
 Route::post('/admin/mobile/confirmed', 'AdminController@mobile_confirmed')->name('admin.mobile.confirmed');
+
+/* User's email validation route (requires logged in) */
 Route::get('/validate/email', 'AdminController@validateEmail')->name('validate.email');
 Route::get('/confirm/email/{email}/{cc}', 'AdminController@confirmEmail')->name('email.confirmation');
+
+/* User's route for deleting his/her account (requires logged in) */
 Route::get('/cancel/delete/account', 'AdminController@cancel_delete')->name('admin.cancel.delete');
 Route::get('/delete/account', 'AdminController@delete')->name('delete.account');
 Route::delete('/destroy/account/{id}', 'AdminController@destroy')->name('destroy.account');
+
+/* User's route when update fails (requires logged in) */
 Route::get('/update/failed/{errorMessage}', 'AdminController@updateFailed')->name('update.failed');
 
 // Skippycoin
