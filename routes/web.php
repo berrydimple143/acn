@@ -20,13 +20,17 @@ Route::post('manage/paypal/ipn', 'PaymentController@manage_paypal_ipn')->name('m
 /* Automatic routing when using authentication in this project */
 Auth::routes();
 
-/*  */
+/* Overriding the default authentication routes for login controller */
 Route::get('/login', 'LoginController@index')->name('login');
 Route::get('/login/with', 'LoginController@login_with')->name('login.with');
 Route::post('/login', 'LoginController@login');
+
+/* Reset password button routes */
 Route::get('/go/back', 'ResetPasswordController@go_back')->name('go.back');
 Route::get('/reset/password/of/{email}', 'ResetPasswordController@go_reset')->name('go.reset');
 Route::post('/reset/now', 'ResetPasswordController@reset_now')->name('reset.now');
+
+/* Facebook login routes using the socialite package */
 Route::get('/redirect', 'SocialAuthFacebookController@redirect')->name('facebook.redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback')->name('facebook.callback');
 
