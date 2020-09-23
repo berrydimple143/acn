@@ -375,6 +375,8 @@ class AdminController extends Controller {
 				return redirect('login')->with('loc', $newloc)->with('url', $newurl)->with('viewbg', $newbg)->with('uri', $newuri)->with('rootpath', $newrootpath);				
 			}
     }
+    
+    /* This method is responsible for all the transactions in the user admin's marketing section or page */
 	public function marketing() {
 		if(self::isLogin()) {
 			try {
@@ -390,6 +392,8 @@ class AdminController extends Controller {
 			return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
 		} 
 	}
+    
+    /* This method is responsible for presenting paypal transaction information */
 	public function paypal_data() {
         $details = PaymentDetail::where('customer_id', session('user')->customer_id);
         return Datatables::of($details)			
@@ -408,6 +412,8 @@ class AdminController extends Controller {
                 return '<center>'.$dt.'</center>';
 			})->rawColumns(['payment_status', 'date_paid'])->make(true);
     }
+    
+    /* This method is responsible for presenting paypal transaction information */
 	public function manage_paypal(Request $request) {		
 		try {
 			$cntr = PaymentDetail::where('customer_id', session('user')->customer_id)->count();
@@ -417,10 +423,13 @@ class AdminController extends Controller {
 			throw new GeneralException("Oops! There was an error somewhere in the process.");
 		}
 	}
+    
+    /* This method is responsible when something's wrong in the user's admin area */
 	public function errorFound($errorMessage) {			
         return view('admin.general_error', ['title' => 'Error Found', 'status' => $errorMessage, 'runningbg' => session('runningbg')]);
 	}
 	
+    /* This method is responsible for checking whether a user is logged in or not. This uses data retrieved from a session */
     public static function isLogin() {
         if(session('loggedin') != null) {
                 if(session('loggedin') == "no"){
@@ -431,6 +440,8 @@ class AdminController extends Controller {
                 return false;
         }
     }
+    
+    /* This method is responsible for validating an email address */
 	public function validateEmail() {
 		try {
 			$to = session('user')->customer_email;
@@ -463,6 +474,8 @@ class AdminController extends Controller {
 			throw new GeneralException("Oops! There was an error somewhere in the process.");
 		}
     }
+    
+    /* This method is responsible for confirming an email address */
 	public function confirmEmail($email, $cc) {
 		try {
 			$c = User::where('customer_email', $email)->update(['customer_emailvalidated' => 1]);
@@ -484,6 +497,8 @@ class AdminController extends Controller {
 			throw new GeneralException("Oops! There was an error somewhere in the process.");
 		}
 	}
+    
+    /* This method is responsible for validating mobile numbers */
 	public function mobile() {
 		if(self::isLogin()) {
             return view('admin.mobile', ['title' => 'Admin Mobile Page', 'runningbg' => session('runningbg')]);
@@ -491,6 +506,8 @@ class AdminController extends Controller {
             return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
         }        
     }   
+    
+    /* This method is responsible for validating mobile numbers */
 	public function post_mobile(Request $request) {		
 			if(self::isLogin()) {
 				try {
@@ -516,6 +533,8 @@ class AdminController extends Controller {
 				return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
 			} 		
     }
+    
+    /* This method is responsible for confirming mobile numbers */
 	public function mobile_confirmed(Request $request) {		
 			if(self::isLogin()) {
 				try {
