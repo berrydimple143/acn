@@ -34,6 +34,7 @@ class AdminController extends Controller {
 	public $datedecrypted = "";
 	public $keyepochtime = "";
 	
+    /* This method is responsible for code testing */
 	public function test_code() {
 		$done = new  DeleteUnused();
 		$photos = public_path('/publicimages/large_images/*.*');
@@ -53,6 +54,8 @@ class AdminController extends Controller {
 		$l = $done->clean_up($logos, 'logo');
 		return $l;
 	}
+    
+    /* This method is responsible for updating the session variables especially when moving from one location or portal to another */
 	public static function updateSession($unsafe_loc, $unsafe_url) {
         $safeurl = "broome.town";
         $ipaddr = $_SERVER['REMOTE_ADDR'];
@@ -70,6 +73,8 @@ class AdminController extends Controller {
 		session(['ipaddr' => $ipaddr]);          
         return $safeurl;
     }
+    
+    /* This method is responsible for updating the site's background picture whenever moving to another location/portal */
 	public static function updateBackground($arsite, $server, $vbg, $uri, $rpath) {
 		try {
 			$bgcreditstring = "";
@@ -165,6 +170,8 @@ class AdminController extends Controller {
 			throw new GeneralException("Oops! There was an error somewhere in the process.");
 		}
     }
+    
+    /* This method is responsible for  */
 	public static function updateMenu() { 
 		try {
 			$number_of_images = 1;  
