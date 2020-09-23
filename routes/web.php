@@ -200,7 +200,7 @@ Route::get('/paypal/data', 'AdminController@paypal_data')->name('paypal.data');
 /* Custom test code */
 Route::get('test/code', 'AdminController@test_code')->name('test.code');
 
-//Marketing Tools
+/* User's custom marketing tools and interface within the ARN system */
 Route::get('marketing/tools', 'AdminController@marketing')->name('marketing.tools');
 Route::get('email/lists', 'MarketingController@email_lists')->name('email.lists');
 Route::get('/email/list/data', 'MarketingController@data')->name('lists.information');
