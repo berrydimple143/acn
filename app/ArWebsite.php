@@ -1,5 +1,8 @@
 <?php
 
+/* Note: Some of the models refers to different databases in mysql because this project uses multiple mysql database */
+/* This is the model for the manually populated table in the mysql database. The work is done by a data entry job or something else. */
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
