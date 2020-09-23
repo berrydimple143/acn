@@ -12,3 +12,12 @@ Comments are presented inside each code explaining its functions (what it can do
 5. And of course, it has also a traditional login where you'll provide your email and password if you already have an account in this system. 
 6. The "Forgot your Password" link will take you to a page where you'll provide the email address you've used in this system and also with added captcha for security reasons.
 7. The "Tell a Friend" button will take you to a page where you can invite a friend to the system by sending a personal email. 
+8. After logging in successfully you can now add an advertisements, articles, events, upload or create photos, banners, portrait, and logos. You also have a capability to edit and  delete them. Note: There are more features in the user's admin area which I will not be discussing in this documentation and it's your turn to explore them.
+
+# Programming technologies used for this project
+
+* Laravel Framework
+* Javascript
+* Jquery
+* Twitter Bootstrap
+* Fabric.js
