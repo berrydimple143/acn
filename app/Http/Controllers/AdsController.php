@@ -249,6 +249,8 @@ class AdsController extends Controller {
                 return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
         }
     }
+    
+    /* This method is responsible for a style dropdown list for a location where to post an advertisement. The interface can be found in the advertisement creator form */
 	public function getPostLocation($adtype) {
 		$clevel = session('user')->customer_level;	
 		if($adtype == "commercial") {			
@@ -361,6 +363,8 @@ class AdsController extends Controller {
 		session(['countrybadgetext' => $countrybadgetext]);
 		return $locationHTML;
 	}	
+    
+    /* This method is responsible for fetching youtube code asyncronously  */
 	public function checkVideo(Request $request) {
 		$code = $request->input('code');	
 		$URL = $request->input('URL');	
@@ -377,6 +381,8 @@ class AdsController extends Controller {
 		$content = '<iframe width="550" height="360" src="https://www.youtube.com/embed/'. $videoId . '?autoplay=1&controls=0&color=white&autohide=1&loop=1&modestbranding=1&showinfo=0&rel=0&cc_load_policy=0&iv_load_policy=3" frameborder="0" allowfullscreen></iframe>';					
 		return response()->json(['videoid' => $videoId, 'content' => $content]);			
     }
+    
+    /* This method is responsible for getting the youtube video ID */
 	public function getYoutubeVideoID($str) {
 		$contains = str_contains($str, ['https://www.youtube.com', 'http://www.youtube.com']);
 		$videoId = $str;
@@ -385,11 +391,15 @@ class AdsController extends Controller {
 		}
 		return $videoId;
 	}
+    
+    /* This method is responsible for getting advertisement categories asyncronously */
 	public function getCategories(Request $request) {
 		$dir = $request->input('dir');		
 		$categories = AdsCategory::where('dir', $dir)->orderBy('id', 'desc')->get();
 		return $categories;		
 	}	
+    
+    /* This method is a helper function for checking the existence of a category within a particular directory  */
 	public function checkCategory(Request $request) {
 		$dir = $request->input('dir');
 		$category = $request->input('category');
@@ -402,6 +412,8 @@ class AdsController extends Controller {
 		}
 		return response()->json(['stat' => $stat]);
     }
+    
+    /* This method is responsible for  */
 	public function getLocation(Request $request) {
 		$ltype = $request->input('ltype');		
 		$adtype = $request->input('adtype');			
