@@ -21,3 +21,8 @@ Comments are presented inside each code explaining its functions (what it can do
 * Jquery
 * Twitter Bootstrap
 * Fabric.js
+* Google Maps API version 3
+* CSS/CSS3
+* HTML5
+* Datatables
+* Laravel packages such as Socialite, Youtube, Intervention/Image, Yajra/Datatables, etc.
