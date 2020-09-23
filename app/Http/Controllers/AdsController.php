@@ -603,6 +603,8 @@ class AdsController extends Controller {
 					return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
 			}				
     }
+    
+    /* This method is a helper function for deleting the dropdown location session */
 	public function forgetTemp($req) {
 		$req->session()->forget('townStyle');
 		$req->session()->forget('stateStyle');
@@ -615,6 +617,8 @@ class AdsController extends Controller {
 		$req->session()->forget('countrybadgetext');
 		return 'forgotten';
 	}
+    
+    /* This method is a helper function for updating the number of advertisements */
 	public function updateAdsCounter() {
         $numOfAds = Advertisement::where('customer_id', session('user')->customer_id)->count();
 		session(['numOfAds' => $numOfAds]);
@@ -711,6 +715,8 @@ class AdsController extends Controller {
             return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
         }	
     }
+    
+    /* This method is responsible for actually updating the advertisement data in the database from the advertisement editor form */
     public function update(Request $request, $id) {		
 			if(AdminController::isLogin()) {	
 				$clevel = session('user')->customer_level;	
@@ -805,6 +811,8 @@ class AdsController extends Controller {
 				return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
 			}		
     }
+    
+    /* This method is responsible for showing the delete advertisement page */
     public function delete($id) {
 		try {
 			$ad = Advertisement::where('ad_id', $id)->where('customer_id', session('user')->customer_id)->first();
@@ -814,6 +822,8 @@ class AdsController extends Controller {
 			throw new GeneralException("Oops! There was an error somewhere in the process.");
 		}
     }
+    
+    /* This method is responsible for actually deleting the advertisement in the database and then redirecting to the advertisement table */
     public function destroy($id) {      		
 		try {
 			$ad = Advertisement::where('ad_id', $id)->where('customer_id', session('user')->customer_id)->delete();
