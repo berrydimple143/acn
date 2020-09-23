@@ -568,6 +568,8 @@ class AdminController extends Controller {
 				return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
 			}		
     }
+    
+    /* This method is responsible for adding or editing the account settings */
     public function settings() {		
 		if(self::isLogin()) {
 			try {
@@ -582,6 +584,8 @@ class AdminController extends Controller {
 			return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
 		}    		
     }    
+    
+    /* This method is responsible for showing the user's profile form */
     public function profile() {		
 		if(self::isLogin()) {			
 			try {
@@ -595,6 +599,8 @@ class AdminController extends Controller {
 			return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
 		}    		
     }
+    
+    /* This method is responsible for updating the user's profile form */
     public function update_profile(Request $request, $id) {
 		$v = $request->validate([
 			'customer_facebook' => ['string', 'nullable', 'max:100', new Facebook],				
@@ -622,6 +628,8 @@ class AdminController extends Controller {
 			throw new GeneralException("Oops! There was an error somewhere in the process.");
 		}
     }
+    
+    /* This method is responsible for validating the Skippycoin wallet address */
 	public function validateAddress($address) {
 		$decoded = $this->decodeBase58($address);
 		$d1 = hash("sha256", substr($decoded, 0, 21) , true);
@@ -631,6 +639,8 @@ class AdminController extends Controller {
 		}
 		return true;		
 	}	
+    
+    /* This is a custom helper function for validating the Skippycoin wallet address */
 	public function decodeBase58($input) {
 		$alphabet = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
 		$out = array_fill(0, 25, 0);
@@ -655,9 +665,13 @@ class AdminController extends Controller {
 		}
 		return $result;
     }
+    
+    /* This is a custom helper function for checking the uniqueness of a user in the database */
 	public function checkUserUniqueness($id, $field, $value) {
 		return User::where('customer_id', '!=', $id)->where($field, '!=', '')->where($field, $value)->count();
 	}
+    
+    /* This is a custom helper function for checking the uniqueness of a mobile number in the database */
 	public function checkMobileUniqueness($id, $field, $mobile) {
 		if(Str::startsWith($mobile, '0')) {
 			$mobile2 = Str::replaceFirst('0', '', $mobile);	
@@ -674,9 +688,13 @@ class AdminController extends Controller {
 		}
 		return $cntr;
 	}
+    
+    /* This method is responsible for viewing an error page when editing an account settings */
 	public function updateFailed($errorMessage) {		
         return view('admin.updates', ['title' => 'Edit settings failed', 'status' => $errorMessage, 'runningbg' => session('runningbg')]);
 	}	
+    
+    /* This method is responsible for updating a user's account settings */
     public function update_settings(Request $request, $id) {
 		try {
 			$v = $request->validate([
@@ -755,6 +773,8 @@ class AdminController extends Controller {
 			throw new GeneralException("Oops! There was an error somewhere in the process.");
 		}
     }
+    
+    /* This method is responsible for viewing a membership page where you can upgrade it */
     public function membership() {
         if(self::isLogin()) {
 			try {
@@ -774,6 +794,8 @@ class AdminController extends Controller {
             return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
         }
     }
+    
+    /* This method is responsible for viewing a local resident membership page */
     public function localresident() {
         if(self::isLogin()) {	
 			try {
@@ -788,6 +810,8 @@ class AdminController extends Controller {
             return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
         }
     }
+    
+    /* This method is responsible for viewing a community leader membership page */
     public function communityleader() {
         if(self::isLogin()) {	
 			try {
@@ -805,6 +829,8 @@ class AdminController extends Controller {
             return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
         }
     }
+    
+    /* This method is responsible for viewing a local business membership page */
 	public function localbusiness() {
         if(self::isLogin()) {	
 			try {
@@ -822,6 +848,8 @@ class AdminController extends Controller {
             return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
         }
     }
+    
+    /* This method is responsible for viewing a national business membership page */
 	public function nationalbusiness() {
         if(self::isLogin()) {	
 			try {
@@ -839,6 +867,8 @@ class AdminController extends Controller {
             return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
         }
     }
+    
+    /* This method is responsible for viewing a sponsorship page */
 	public function sponsorship() {
         if(self::isLogin()) {		
 			try {
@@ -898,18 +928,28 @@ class AdminController extends Controller {
             return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
         }
     }
+    
+    /* Helper function for decrypting a date */
 	public function getDateDecrypted() {
 		return $this->datedecrypted;
 	}	
+    
+    /* Helper function for manipulating a date */
 	public function getKeyepochtime() {
 		return $this->keyepochtime;
 	}
+    
+    /* Helper function for getting a customer key */
 	public function getCKey() {
 		return $this->getkey;
 	}
+    
+    /* Helper function for getting the user or customer id */
 	public function getCCID() {
 		return $this->getcid;
 	}	
+    
+    /* Helper function for setting a customer key */
 	public function setCKey($k) {
 		if(isset($k)){
 			$key = $k;		
@@ -921,6 +961,8 @@ class AdminController extends Controller {
 		}
 		$this->getkey = $key;
 	}
+    
+    /* Helper function for setting a customer id */
 	public function setCCID($id) {
 		if(isset($id)){ 
 			$cid = $id;
@@ -931,6 +973,8 @@ class AdminController extends Controller {
 		}
 		$this->getcid = $cid;
 	}
+    
+    /* Helper function for generating a sponsor key or id */
 	public function getSponsor($key) {
 		$base23num = '';
 		$decrypted = '';
@@ -968,6 +1012,8 @@ class AdminController extends Controller {
 		$sponsor =  '4C' . substr($decrypted, -12);
 		return $sponsor;
 	}
+    
+    /* Helper function for manipulating a day in the date function */
 	public function getEpockDay() {
 		$epoch = Carbon::now(new DateTimeZone('U'));			
 		$epoch = $epoch - 34200;		
@@ -975,6 +1021,8 @@ class AdminController extends Controller {
 		$smallepochday = $epochday-16314;
 		return $smallepochday;
 	}
+    
+    /* This method is responsible for viewing a sponsorship key table */
 	public function sponsorshipkey(Request $request) {
 		if(self::isLogin()) {
 			try {
@@ -1043,6 +1091,8 @@ class AdminController extends Controller {
             return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
         }
 	}
+    
+    /* This method is responsible for viewing a delete an account page */
 	public function delete() {
 		if(self::isLogin()) {	
 			try {
@@ -1056,6 +1106,8 @@ class AdminController extends Controller {
             return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
         }
 	}
+    
+    /* This method is responsible for cancelling a delete account process */
 	public function cancel_delete() {		
 		if(self::isLogin()) {	
 			try {
@@ -1075,6 +1127,8 @@ class AdminController extends Controller {
 			return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
 		}		
 	}
+    
+    /* This method is responsible for actually deleting a user's account in the ARN database */
 	public function destroy(Request $req, $id) {      	
 		try {
 			$now = Carbon::now();
@@ -1109,6 +1163,8 @@ class AdminController extends Controller {
 			throw new GeneralException("Oops! There was an error somewhere in the process.");
 		}
     }
+    
+    /* This method is responsible for logging out the user */
     public function logout(Request $request) {
 		try {
 			$usr = User::where('customer_id', session('user')->customer_id)->first();
