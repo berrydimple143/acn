@@ -1,5 +1,7 @@
 <?php
 
+/* This is the model for the advertisement category */
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
