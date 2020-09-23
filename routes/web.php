@@ -72,10 +72,10 @@ Route::get('/skippycoin/failed/{errorMessage}', 'SkippycoinController@skcFailed'
 Route::get('/skippycoin/status', 'SkippycoinController@status')->name('skippycoin.status');
 Route::get('/skippycoin/status/update/{old}', 'SkippycoinController@status_update')->name('skippycoin.status.update');
 
-//Errors
+/* User's route when something's went wrong in the admin area */
 Route::get('/error/found/{errorMessage}', 'AdminController@errorFound')->name('error.found');
 
-//Advertisements
+/* User's route when adding, editing, deleting and other related functions (such as adding youtube videos, etc.) in the Advertisements Interface (requires logged in) */
 Route::get('/ads', 'AdsController@index')->name('advertisements');
 Route::get('/ads/data', 'AdsController@data')->name('ads.information');
 Route::get('/ads/select', 'AdsController@select')->name('ads.select');
@@ -93,7 +93,7 @@ Route::get('/ads/location', 'AdsController@getLocation')->name('ads.location');
 Route::get('ads/delete/{id}', 'AdsController@delete')->name('ads.delete');
 Route::delete('ads/destroy/{id}', 'AdsController@destroy')->name('ads.destroy');
 		
-//Articles
+/* User's route when adding, editing, deleting and other related functions (such as adding youtube videos, etc.) in the Articles Interface (requires logged in) */
 Route::get('/articles', 'ArticleController@index')->name('articles');
 Route::get('/article/add', 'ArticleController@create')->name('article.add');
 Route::post('/article/post', 'ArticleController@store')->name('article.post');
@@ -107,7 +107,7 @@ Route::get('/art/location', 'ArticleController@getLocation')->name('article.loca
 Route::get('article/delete/{id}', 'ArticleController@delete')->name('article.delete');
 Route::delete('article/destroy/{id}', 'ArticleController@destroy')->name('article.destroy');
 
-//Events
+/* User's route when adding, editing, deleting and other related functions (such as adding youtube videos, etc.) in the Events Interface (requires logged in) */
 Route::get('/events', 'EventController@index')->name('events');
 Route::get('/events/data', 'EventController@data')->name('events.information');
 Route::get('/event/select', 'EventController@select')->name('event.select');
@@ -121,7 +121,7 @@ Route::get('/event/delete/{id}', 'EventController@delete')->name('event.delete')
 Route::post('/event/post', 'EventController@store')->name('event.post');
 Route::delete('event/destroy/{id}', 'EventController@destroy')->name('event.destroy');
 
-//Photos
+/* User's route when uploading, editing, deleting and other related functions in the Photos Interface (requires logged in) */
 Route::get('/photos', 'PhotoController@index')->name('photos');
 Route::post('/photo/search', 'PhotoController@search')->name('photo.search');
 Route::get('/photo/add', 'PhotoController@create')->name('photo.add');
