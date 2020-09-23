@@ -26,3 +26,4 @@ Comments are presented inside each code explaining its functions (what it can do
 * HTML5
 * Datatables
 * Laravel packages such as Socialite, Youtube, Intervention/Image, Yajra/Datatables, etc.
+* MySQL
