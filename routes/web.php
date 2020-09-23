@@ -75,7 +75,7 @@ Route::get('/skippycoin/status/update/{old}', 'SkippycoinController@status_updat
 /* User's route when something's went wrong in the admin area */
 Route::get('/error/found/{errorMessage}', 'AdminController@errorFound')->name('error.found');
 
-/* User's route when adding, editing, deleting and other related functions (such as adding youtube videos, etc.) in the Advertisements Interface (requires logged in) */
+/* User's route when adding, editing, deleting and other related functions (such as adding youtube videos, etc.) in the Advertisements Section (requires logged in) */
 Route::get('/ads', 'AdsController@index')->name('advertisements');
 Route::get('/ads/data', 'AdsController@data')->name('ads.information');
 Route::get('/ads/select', 'AdsController@select')->name('ads.select');
@@ -93,7 +93,7 @@ Route::get('/ads/location', 'AdsController@getLocation')->name('ads.location');
 Route::get('ads/delete/{id}', 'AdsController@delete')->name('ads.delete');
 Route::delete('ads/destroy/{id}', 'AdsController@destroy')->name('ads.destroy');
 		
-/* User's route when adding, editing, deleting and other related functions (such as adding youtube videos, etc.) in the Articles Interface (requires logged in) */
+/* User's route when adding, editing, deleting and other related functions (such as adding youtube videos, etc.) in the Articles Section (requires logged in) */
 Route::get('/articles', 'ArticleController@index')->name('articles');
 Route::get('/article/add', 'ArticleController@create')->name('article.add');
 Route::post('/article/post', 'ArticleController@store')->name('article.post');
@@ -107,7 +107,7 @@ Route::get('/art/location', 'ArticleController@getLocation')->name('article.loca
 Route::get('article/delete/{id}', 'ArticleController@delete')->name('article.delete');
 Route::delete('article/destroy/{id}', 'ArticleController@destroy')->name('article.destroy');
 
-/* User's route when adding, editing, deleting and other related functions (such as adding youtube videos, etc.) in the Events Interface (requires logged in) */
+/* User's route when adding, editing, deleting and other related functions (such as adding youtube videos, etc.) in the Events Section (requires logged in) */
 Route::get('/events', 'EventController@index')->name('events');
 Route::get('/events/data', 'EventController@data')->name('events.information');
 Route::get('/event/select', 'EventController@select')->name('event.select');
@@ -121,7 +121,7 @@ Route::get('/event/delete/{id}', 'EventController@delete')->name('event.delete')
 Route::post('/event/post', 'EventController@store')->name('event.post');
 Route::delete('event/destroy/{id}', 'EventController@destroy')->name('event.destroy');
 
-/* User's route when uploading, editing, deleting and other related functions in the Photos Interface (requires logged in) */
+/* User's route when uploading, editing, deleting and other related functions in the Photos Section (requires logged in) */
 Route::get('/photos', 'PhotoController@index')->name('photos');
 Route::post('/photo/search', 'PhotoController@search')->name('photo.search');
 Route::get('/photo/add', 'PhotoController@create')->name('photo.add');
@@ -138,7 +138,7 @@ Route::put('move/photo/update/{id}', 'PhotoController@movePhotoNow')->name('move
 Route::get('/move/now', 'PhotoController@moveNow')->name('move.photo.now');
 Route::get('/remove/now', 'PhotoController@removeNow')->name('remove.photo.now');
 
-//Banners
+/* User's route when creating, uploading, editing, deleting and other related functions in the Banners Section (requires logged in) */
 Route::get('/banners', 'BannerController@index')->name('banners');
 Route::post('/banner/search', 'BannerController@search')->name('banner.search');
 Route::get('/banner/selection', 'BannerController@selection')->name('banner.selection');
@@ -154,7 +154,7 @@ Route::get('/update/banner', 'BannerController@update_banner')->name('update.ban
 Route::post('/create-banner', 'BannerController@createBanner')->name('create.banner');
 Route::post('/banner-image-upload', 'BannerController@imageUpload')->name('banner.image.upload');
 
-//Portraits
+/* User's route when uploading, editing, deleting and other related functions in the Portraits Section (requires logged in) */
 Route::get('/portraits', 'PortraitController@index')->name('portraits');
 Route::post('/portrait/search', 'PortraitController@search')->name('portrait.search');
 Route::get('/portrait/add', 'PortraitController@create')->name('portrait.add');
@@ -166,7 +166,7 @@ Route::get('portrait/delete/{id}', 'PortraitController@delete')->name('delete.po
 Route::delete('portrait/destroy/{id}', 'PortraitController@destroy')->name('portrait.destroy');
 Route::post('portrait/angle', 'PortraitController@getAngle')->name('portrait.angle');
 
-//Logos
+/* User's route when uploading, editing, deleting and other related functions in the Logos Section (requires logged in) */
 Route::get('/logos', 'LogoController@index')->name('logos');
 Route::post('/logo/search', 'LogoController@search')->name('logo.search');
 Route::get('/logo/add', 'LogoController@create')->name('logo.add');
@@ -177,14 +177,14 @@ Route::get('logo/set/primary/{id}', 'LogoController@setPrimary')->name('logo.set
 Route::get('logo/delete/{id}', 'LogoController@delete')->name('delete.logo');
 Route::delete('logo/destroy/{id}', 'LogoController@destroy')->name('logo.destroy');
 
-// Move Portal
+/* User's route when moving from one portal/location to another in the same ARN network (requires logged in) */
 Route::get('/move', 'MoveController@index')->name('move');
 Route::get('/state/regions', 'MoveController@getRegions')->name('state.regions');
 Route::get('/goto/region', 'MoveController@gotoRegion')->name('goto.region');
 Route::get('/move/portal', 'MoveController@movehere')->name('move.portal');
 Route::get('/back/home', 'MoveController@backhome')->name('back.home');
 
-// Membership
+/* User's route when upgrading or downgrading a membership status (Membership Levels are Local Resident, Community Leader, Local Business, and National Business) (requires logged in) */
 Route::get('/membership', 'AdminController@membership')->name('membership');
 Route::get('/localresident', 'AdminController@localresident')->name('localresident');
 Route::get('/communityleader', 'AdminController@communityleader')->name('communityleader');
@@ -193,10 +193,11 @@ Route::get('/nationalbusiness', 'AdminController@nationalbusiness')->name('natio
 Route::get('/sponsorship', 'AdminController@sponsorship')->name('sponsorship');
 Route::get('/sponsorshipkey', 'AdminController@sponsorshipkey')->name('sponsorshipkey');
 
-//Paypal Transactions
+/* User's interface for managing his/her paypal transactions */
 Route::get('manage/paypal', 'AdminController@manage_paypal')->name('manage.paypal');
 Route::get('/paypal/data', 'AdminController@paypal_data')->name('paypal.data');
 
+/* Custom test code */
 Route::get('test/code', 'AdminController@test_code')->name('test.code');
 
 //Marketing Tools
