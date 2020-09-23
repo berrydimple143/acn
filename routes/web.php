@@ -65,7 +65,7 @@ Route::delete('/destroy/account/{id}', 'AdminController@destroy')->name('destroy
 /* User's route when update fails (requires logged in) */
 Route::get('/update/failed/{errorMessage}', 'AdminController@updateFailed')->name('update.failed');
 
-// Skippycoin
+/* User's skippycoin interface routes (requires logged in). Skippycoin is a customized crypto currency in Australia (same as bitcoin) but still in progress. */
 Route::get('/skippycoin', 'SkippycoinController@index')->name('skippycoin');
 Route::post('/save/skippywallet', 'SkippycoinController@store_wallet')->name('save.skippywallet');
 Route::get('/skippycoin/failed/{errorMessage}', 'SkippycoinController@skcFailed')->name('skippycoin.failed');
