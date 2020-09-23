@@ -114,6 +114,8 @@ class AdsController extends Controller {
 			throw new GeneralException("Oops! There was an error somewhere in the process.");
 		} 		
     }
+    
+    /* This is a helper function which check if a user already exceeds in creating an advertisement as per membership level  */
 	public function limitExceeded() {
 		$exceeded = 'no';
 		$level = session('user')->customer_level;
@@ -123,6 +125,8 @@ class AdsController extends Controller {
 		}
 		return $exceeded;
 	}
+    
+    /* This is a helper function that returns a message (exceeded, validated, or not validated) */
 	public function checkUserLevel($command) {
 		$level = session('user')->customer_level;
 		$msg = '';
@@ -143,6 +147,8 @@ class AdsController extends Controller {
 		} 
 		return $msg;
 	}
+    
+    /* This method is responsible for showing a selection page of what type of advertisement to be created after clicking the Add Advertisement button */
     public function select() {
         if(AdminController::isLogin()) {
 			try {					
@@ -172,6 +178,8 @@ class AdsController extends Controller {
                 return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));
         }
     }
+    
+    /* This method is responsible for redirecting to an advertisement creator page after the advertisement selection page */
 	public function selected($adtype) {		
         if(AdminController::isLogin()) {
 			try {
