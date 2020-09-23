@@ -16,6 +16,7 @@ Comments are presented inside each code explaining its functions (what it can do
 
 # Programming technologies used for this project
 
+* PHP
 * Laravel Framework
 * Javascript
 * Jquery
