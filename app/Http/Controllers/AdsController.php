@@ -413,7 +413,7 @@ class AdsController extends Controller {
 		return response()->json(['stat' => $stat]);
     }
     
-    /* This method is responsible for  */
+    /* This method is responsible for getting and populating the location dropdown in the advertisement creator form */
 	public function getLocation(Request $request) {
 		$ltype = $request->input('ltype');		
 		$adtype = $request->input('adtype');			
@@ -436,24 +436,38 @@ class AdsController extends Controller {
 		}		
 		return $lh;		
 	}
+
+    /* This method is a helper function for setting the latitude used in the google map api version 3 */
 	public function setLatitude($lat) {
 		$this->latitude = $lat;
 	}
+    
+    /* This method is a helper function for setting the longitude used in the google map api version 3 */
 	public function setLongitude($lng) {
 		$this->longitude = $lng;
 	}
+    
+    /* This method is a helper function for setting the zoom used in the google map api version 3 */
 	public function setZoom($zm) {
 		$this->zoom = $zm;
 	}
+    
+    /* This method is a helper function for getting the latitude used in the google map api version 3 */
 	public function getLatitude() {
 		return $this->latitude;
 	}
+    
+    /* This method is a helper function for getting the longitude used in the google map api version 3 */
 	public function getLongitude() {
 		return $this->longitude;
 	}
+    
+    /* This method is a helper function for getting the zoom used in the google map api version 3 */
 	public function getZoom() {
 		return $this->zoom;
 	}	
+    
+    /* This method is a helper function for the map creation used in the google map api version 3 */
 	public function createMap($mode, $ad) {
 		if($mode == "add") {
 			try {
@@ -481,6 +495,8 @@ class AdsController extends Controller {
 		$this->setZoom($zoom);	
 		return true;
     }	
+    
+    /* This method is responsible for saving the advertisement into the database from the advertisement creator form */
     public function store(Request $request) {		
 			if(AdminController::isLogin()) {			
 				$clevel = session('user')->customer_level;	
@@ -604,6 +620,8 @@ class AdsController extends Controller {
 		session(['numOfAds' => $numOfAds]);
 		return $numOfAds;
     }    
+    
+    /* This method is responsible for showing the advertisement editor form */
     public function edit($id) {
 		if(AdminController::isLogin()) {
 			try {
