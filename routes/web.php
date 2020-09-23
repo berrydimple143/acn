@@ -1,18 +1,26 @@
 <?php
+/* These are the routes when logging in with mobile */
 Route::get('/mobile/{email}', 'FrontController@mobile')->name('mobile');
 Route::post('/mobile', 'FrontController@post_mobile')->name('mobile.post');
 Route::post('/mobile/confirmed', 'FrontController@mobile_confirmed')->name('mobile.confirmed');
+
+/* This is the route when manually creating a user or a customer */
 Route::post('/create/user', 'FrontController@create_user')->name('user.create');
+
+/* These are the routes when a Tell a Friend button is clicked */
 Route::get('/share', 'FrontController@share')->name('share');
 Route::post('/share', 'FrontController@post_share')->name('post.share');
 
-//	Payment
+//	These are the routes when paying a subscription through paypal or credit card
 Route::post('/process/payment', 'PaymentController@processPayment')->name('process.pay');
 Route::get('/payment/successful', 'PaymentController@payment_successful')->name('payment.success');
 Route::get('/payment/failed', 'PaymentController@payment_failed')->name('payment.failed');
 Route::post('manage/paypal/ipn', 'PaymentController@manage_paypal_ipn')->name('manage.paypal.ipn'); 
 
+/* Automatic routing when using authentication in this project */
 Auth::routes();
+
+/*  */
 Route::get('/login', 'LoginController@index')->name('login');
 Route::get('/login/with', 'LoginController@login_with')->name('login.with');
 Route::post('/login', 'LoginController@login');
