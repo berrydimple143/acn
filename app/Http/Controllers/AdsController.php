@@ -1,5 +1,7 @@
 <?php
 
+/* Note: All methods in this controller cannot be accessed or used without logging in first */
+
 namespace App\Http\Controllers;
 
 use Yajra\Datatables\Datatables;
@@ -28,6 +30,7 @@ class AdsController extends Controller {
 	private $longitude;
 	private $zoom;
 	
+    /* This method is responsible for viewing the list of created advertisements in tabular form */
     public function index() {
 		if(AdminController::isLogin()) {
 			try {
@@ -41,6 +44,8 @@ class AdsController extends Controller {
 			return redirect('login')->with('loc', session('location'))->with('url', session('url'))->with('viewbg', session('runningbg'))->with('uri', session('serveruri'))->with('rootpath', session('rootpath'));                
         }
     }
+    
+    /* This method is responsible for  */
     public function data() {
         $ads = Advertisement::where('customer_id', session('user')->customer_id)->orderBy('ad_id', 'desc');
         return Datatables::of($ads)			
